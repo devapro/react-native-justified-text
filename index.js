@@ -1,5 +1,5 @@
-import { PropTypes } from 'react';
 import { requireNativeComponent, View } from 'react-native';
+import PropTypes from 'prop-types'
 
 var iface = {
     name: 'JustifiedText',
