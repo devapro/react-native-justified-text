@@ -1,13 +1,17 @@
-package com.ellip.justifiedtext;
+package com.ellip;
 
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.TypedValue;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.ViewGroup;
 
 import com.bluejamesbond.text.DocumentView;
 import com.bluejamesbond.text.style.TextAlignment;
@@ -27,8 +31,9 @@ public class RNJustifiedTextViewManager extends SimpleViewManager<DocumentView> 
 
     @Override
     public DocumentView createViewInstance(ThemedReactContext context) {
-        DocumentView documentView = new DocumentView(context, DocumentView.PLAIN_TEXT);  // Support plain text
+        DocumentView documentView = new DocumentView(context, DocumentView.FORMATTED_TEXT);  // Support plain text
         documentView.getDocumentLayoutParams().setTextAlignment(TextAlignment.JUSTIFIED);
+        documentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         // documentView.setText("Insert your text here Insert your text here Insert your text here Insert your text here Insert your text here Insert your text here Insert your text here Insert your text here"); // Set to `true` to enable justification
 
         return documentView;
@@ -62,7 +67,7 @@ public class RNJustifiedTextViewManager extends SimpleViewManager<DocumentView> 
 
     @ReactProp(name = "text")
     public void setText(DocumentView view, @Nullable String text) {
-        view.getLayout().setText(text);
+        view.getLayout().setText(Html.fromHtml(text));
     }
 
     @ReactProp(name = "color")
