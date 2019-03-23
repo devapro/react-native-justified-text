@@ -1,4 +1,4 @@
-package com.ellip;
+package com.reactlibrary;
 
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
