@@ -4,13 +4,10 @@ import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.util.TypedValue;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.ViewGroup;
 
 import com.bluejamesbond.text.DocumentView;
